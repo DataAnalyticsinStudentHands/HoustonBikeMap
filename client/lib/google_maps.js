@@ -10,6 +10,9 @@ gmaps = {
  
     // our formatted marker data objects
     markerData: [],
+    
+    //layers of objects
+    layers: [],
  
     // add a marker given our formatted marker data object
     addMarker: function(marker) {
@@ -50,9 +53,9 @@ gmaps = {
         //console.log("[+] Intializing Google Maps...");    
          
         var mapOptions = {
-                //center: new google.maps.LatLng(29.7604, -95.3698),
+                center: new google.maps.LatLng(29.7604, -95.3698),
                 //center: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-                zoom: 9,
+                zoom: 15,
                 scaleControl: false,                
                 zoomControl: false,
                 mapTypeControl: false,
@@ -67,18 +70,33 @@ gmaps = {
             mapOptions
         );
         
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = new google.maps.LatLng(position.coords.latitude,
-                                                 position.coords.longitude);
-                map.setCenter(pos);
+   /*                   
+        if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+        var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
         });
+
+        map.setCenter(pos);
+        }, function() {
+        handleNoGeolocation(true);
+        });
+        }   else {
+        // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
         }
-        
-             
+     */        
         // global flag saying we intialized already
         Session.set('map', true);
         
-                 
+           
+               
         }
+    
+    
     }

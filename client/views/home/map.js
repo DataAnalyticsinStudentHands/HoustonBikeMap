@@ -25,7 +25,7 @@ Template.map.rendered = function() {
         });
     });
 }
-
+ 
 Template.map.destroyed = function() {
     Session.set('map', false);
 }
